@@ -6,21 +6,130 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ListView
-        android:id="@+id/ListProduct1"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CLayot"
+        android:layout_width="76dp"
+        android:layout_height="match_parent"
+        android:background="#6A1D83ED"
+        app:layout_constraintStart_toStartOf="parent"
+
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="62dp"
+            android:layout_height="49dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Sales"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_logo_svgrepo_com" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="100dp"
+            android:layout_height="145dp"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="@font/montserrat_subrayada_bold"
+            android:gravity="center"
+            android:rotation="270"
+            android:text="Добавление"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/idChange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/idChange"
+            android:layout_width="100dp"
+            android:layout_height="145dp"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="@font/montserrat_subrayada_bold"
+            android:gravity="center"
+            android:rotation="270"
+            android:text="Изменение"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/idMain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/idMain"
+            android:layout_width="100dp"
+            android:layout_height="145dp"
+            android:layout_marginBottom="84dp"
+            android:fontFamily="@font/montserrat_subrayada_bold"
+            android:gravity="center"
+
+            android:rotation="270"
+            android:text="Главная"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.458"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Market"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="@+id/CLayot"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Place"
+        android:textColor="#6A1D83ED"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/CLayot"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:srcCompat="@drawable/ic_sort_svgrepo_com" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <ListView
+        android:id="@+id/ListProduct"
+        android:layout_marginTop="50dp"
+        android:layout_width="333dp"
+        android:layout_height="515dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintStart_toEndOf="@+id/CLayot"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
-    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

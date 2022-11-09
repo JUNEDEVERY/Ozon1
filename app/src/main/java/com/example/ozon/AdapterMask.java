@@ -1,7 +1,6 @@
 package com.example.ozon;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -56,11 +55,18 @@ public class AdapterMask  extends BaseAdapter {
     {
         View v = View.inflate(mContext,R.layout.item_layuot,null);
         TextView Title = v.findViewById(R.id.txtTitle);
-        TextView Count = v.findViewById(R.id.articleNumber);
+        TextView Price = v.findViewById(R.id.txtprice);
+        TextView Weight = v.findViewById(R.id.txtweight);
+        TextView NameProiz = v.findViewById(R.id.txtnameProiz);
+        TextView Country = v.findViewById(R.id.txtCountry);
         ImageView imageView = v.findViewById(R.id.imageView);
+
         Mask mask = maskList.get(i);
         Title.setText(mask.getName());
-        Count.setText(Double.toString(mask.getPrice()));
+        Price.setText(Float.toString(mask.getPrice()).toString());
+        Weight.setText(mask.getWeight());
+        NameProiz.setText(mask.getNameProiz());
+        Country.setText(mask.getCountryProiz());
 
       //  imageView.setImageBitmap(getUserImage(mask.get()));
 

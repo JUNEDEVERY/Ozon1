@@ -6,14 +6,14 @@ import android.os.Parcelable;
 public class Mask implements Parcelable {
     private int id;
     private String name;
-    private double price;
+    private float price;
     private String weight;
     private String nameProiz;
     private String countryProiz;
 
 
     
-    public Mask(int ID, String Name, Double Price, String Weight, String NameProiz,
+    public Mask(int ID, String Name, float Price, String Weight, String NameProiz,
                 String CountryProiz) {
         this.id = ID;
         name = Name;
@@ -27,7 +27,7 @@ public class Mask implements Parcelable {
     protected Mask(Parcel in) {
         id = in.readInt();
         name = in.readString();
-        price = in.readDouble();
+        price = in.readFloat();
         weight = in.readString();
         nameProiz = in.readString();
         countryProiz = in.readString();
@@ -55,7 +55,7 @@ public class Mask implements Parcelable {
         name = Name;
     }
 
-    public void setPrice(Double Price) {
+    public void setPrice(float Price) {
         this.price = Price;
     }
 
@@ -89,7 +89,7 @@ public class Mask implements Parcelable {
         return name;
     }
 
-    public Double getPrice() {
+    public float getPrice() {
         return price;
     }
 

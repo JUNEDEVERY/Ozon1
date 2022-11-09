@@ -2,8 +2,11 @@ package com.example.ozon;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -18,6 +21,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private AdapterMask pAdapter;
+    String Image;
+    ListView listView;
+    public static int keyID;
+
+
     private List<Mask> listProduct = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +35,18 @@ public class MainActivity extends AppCompatActivity {
         Для того чтобы заполнить ListView  нам необходимо создать адптер. Адаптер используется для связи данных (массивы, базы данных)
         со списком (ListView)
         */
-        ListView ivProducts = findViewById(R.id.ListProduct1);//Находим лист в который будем класть наши объекты
+        ListView ivProducts = findViewById(R.id.ListProduct);//Находим лист в который будем класть наши объекты
         pAdapter = new AdapterMask(MainActivity.this, listProduct); //Создаем объект нашего адаптера
         ivProducts.setAdapter(pAdapter); //Cвязывает подготовленный список с адаптером
+        listView = findViewById(R.id.ListProduct);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                keyID = (int) id;
+                Go();
+            }
+        });
         new GetProducts().execute(); //Подключение к нашей API в отдельном потоке
     }
     private class GetProducts extends AsyncTask<Void, Void, String> {
@@ -38,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... voids) {
             try {
-                URL url = new URL("https://ngknn.ru:5101/NGKNN/герасимовна/api/nameofproducts/");//Строка подключения к нашей API
+                URL url = new URL("https://ngknn.ru:5001/NGKNN/герасимовна/api/nameofproducts/");//Строка подключения к нашей API
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection(); //вызываем нашу API
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -59,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 return null;
             }
         }
+
+
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
@@ -72,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     Mask tempProduct = new Mask(
                             productJson.getInt("id"),
                             productJson.getString("name"),
-                            productJson.getDouble("price"),
+                            (float) productJson.getDouble("price"),
                             productJson.getString("weight"),
                             productJson.getString("nameProiz"),
                             productJson.getString("countryProiz")
@@ -88,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+    }
+    public void Go()
+    {
 
+        startActivity(new Intent(this, ChangeActivity.class));
     }
 }
