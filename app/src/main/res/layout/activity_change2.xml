@@ -10,17 +10,24 @@
         android:id="@+id/consLayuot"
         android:layout_width="76dp"
         android:layout_height="match_parent"
-        android:background="#6A1D83ED"
+        android:background="@drawable/layout_background"
+        android:shadowColor="#000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="50"
         app:layout_constraintStart_toStartOf="parent"
-
         tools:layout_editor_absoluteY="0dp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/photoName"
             android:layout_width="62dp"
             android:layout_height="49dp"
             android:layout_marginBottom="16dp"
             android:contentDescription="Sales"
+            android:shadowColor="#000"
+            android:shadowDx="2"
+            android:shadowDy="5"
+            android:shadowRadius="50"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,14 +35,19 @@
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="100dp"
-            android:layout_height="145dp"
-            android:layout_marginBottom="50dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat_subrayada_bold"
             android:gravity="center"
             android:rotation="270"
+            android:shadowColor="#000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="50"
             android:text="Добавление"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:textSize="25dp"
             app:layout_constraintBottom_toTopOf="@+id/idChange"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,14 +55,19 @@
 
         <TextView
             android:id="@+id/idChange"
-            android:layout_width="100dp"
-            android:layout_height="145dp"
-            android:layout_marginBottom="50dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="35dp"
             android:fontFamily="@font/montserrat_subrayada_bold"
             android:gravity="center"
             android:rotation="270"
+            android:shadowColor="#000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="50"
             android:text="Изменение"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:textSize="25dp"
             app:layout_constraintBottom_toTopOf="@+id/idMain"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -59,26 +76,33 @@
             android:id="@+id/idMain"
             android:layout_width="100dp"
             android:layout_height="145dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="30dp"
+
             android:fontFamily="@font/montserrat_subrayada_bold"
             android:gravity="center"
-
+            android:onClick="onClick2"
             android:rotation="270"
+            android:shadowColor="#000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="50"
             android:text="Главная"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/photoName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="35dp"
+        android:id="@+id/nonephotoItem"
+        android:layout_width="314dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="nonePicture"
+        android:src="@drawable/nullphoto"
         app:layout_constraintBottom_toTopOf="@+id/tvname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
@@ -92,11 +116,10 @@
 
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="60dp"
         app:layout_constraintBottom_toTopOf="@+id/tvprice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+        app:layout_constraintTop_toBottomOf="@+id/nonephotoItem">
 
 
     </EditText>
@@ -108,6 +131,7 @@
 
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/tvweight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -124,7 +148,6 @@
 
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/tvnameproz"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -141,7 +164,6 @@
 
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/tvcountry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -158,9 +180,7 @@
 
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="46dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/tbButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
@@ -169,31 +189,125 @@
 
     </EditText>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="184dp"
-        android:text="Изменить"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:layout_constraintTop_toBottomOf="@+id/tvcountry" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="184dp"
-        android:text="Удалить"
+    <TableRow
+        android:id="@+id/tbOneBTN"
+        android:layout_width="333dp"
+        android:layout_height="52dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/tvcountry" />
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tbButton">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDeletePicture"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:background="@drawable/btn_backgroun"
+            android:onClick="buttonDeletePhoto"
+            android:text="Удалить фото"
+            android:textColor="#ffffff" />
+    </TableRow>
+
+
+    <TableRow
+        android:id="@+id/tbButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="25dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/tbOneBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvcountry">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_backgroun"
+            android:shadowColor="@color/black"
+            android:text="Удалить запись"
+            android:textColor="#ffffff" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnChange"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_backgroun"
+            android:text="Изменить"
+            android:textColor="#ffffff" />
+    </TableRow>
+
+    <TextView
+        android:id="@+id/tvn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_weight="1"
+        android:text="Имя товара"
+
+        app:layout_constraintBottom_toTopOf="@+id/tvname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/nonephotoItem" />
+
+    <TextView
+        android:id="@+id/tvsell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+
+        android:layout_weight="1"
+        android:text="Цена товара"
+        app:layout_constraintBottom_toTopOf="@+id/tvprice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvname" />
+
+    <TextView
+        android:id="@+id/tvw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+        android:layout_weight="1"
+        android:text="Вес товара"
+        app:layout_constraintBottom_toTopOf="@+id/tvweight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvprice" />
+
+
+    <TextView
+        android:id="@+id/tvbrand"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+        android:layout_weight="1"
+        android:text="Бренд"
+        app:layout_constraintBottom_toTopOf="@+id/tvnameproz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvweight" />
+
+    <TextView
+        android:id="@+id/tvstrana"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_weight="1"
+        android:text="Страна изготовитель"
+        app:layout_constraintBottom_toTopOf="@+id/tvcountry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvnameproz" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

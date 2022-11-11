@@ -13,19 +13,18 @@ import retrofit2.http.Query;
 
 public interface RetrofitAPI {
 
-    @GET("nameofproduct/{id}")
+    @GET("nameofproducts/{id}")
     Call<DataModal> getDATA(@Path("id") int id);
 
-    @POST("nameofproduct")
+    @POST("nameofproducts")
     Call<DataModal> createPost(@Body DataModal dataModal);
 
-    @PUT("nameofproduct/{id}")
+    @PUT("nameofproducts/{id}")
     Call<DataModal> updateData(@Query("id") int id, @Body DataModal dataModal);
 
-    @DELETE("nameofproduct/{id}")
+    @DELETE("nameofproducts/{id}")
     Call<Void> deleteData(@Path("id") int id);
 
-    @DELETE("nameofproduct")
-    Call<Void> deleteBasaData();
+
 }
 

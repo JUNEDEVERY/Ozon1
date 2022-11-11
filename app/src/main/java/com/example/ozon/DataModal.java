@@ -8,7 +8,7 @@ public class DataModal {
     private String countryProiz;
     private String picture;
 
-    public DataModal(String Name,  String Weight, String NameProiz,  String CountryProiz,  float Price, String Image) {
+    public DataModal(String Name,  float Price,  String Weight, String NameProiz,  String CountryProiz,  String Image) {
         this.name = Name;
         this.weight = Weight;
         this.nameProiz = NameProiz;

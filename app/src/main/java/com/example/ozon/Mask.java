@@ -10,17 +10,20 @@ public class Mask implements Parcelable {
     private String weight;
     private String nameProiz;
     private String countryProiz;
+    private String image;
 
 
     
     public Mask(int ID, String Name, float Price, String Weight, String NameProiz,
-                String CountryProiz) {
+                String CountryProiz, String Image) {
         this.id = ID;
-        name = Name;
-        price = Price;
-        weight = Weight;
-        nameProiz = NameProiz;
-        countryProiz = CountryProiz;
+        this.name = Name;
+        this.price = Price;
+        this.weight = Weight;
+        this. nameProiz = NameProiz;
+        this.countryProiz = CountryProiz;
+        this.image = Image;
+
 
     }
 
@@ -31,6 +34,7 @@ public class Mask implements Parcelable {
         weight = in.readString();
         nameProiz = in.readString();
         countryProiz = in.readString();
+        image = in.readString();
 
     }
 
@@ -102,6 +106,9 @@ public class Mask implements Parcelable {
     }
 
     public String getCountryProiz() { return countryProiz; }
+    public String getImage() {
+        return image;
+    }
 
 
     public int getID() {

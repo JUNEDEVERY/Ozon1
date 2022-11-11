@@ -1,5 +1,6 @@
 package com.example.ozon;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         /*
         Для того чтобы заполнить ListView  нам необходимо создать адптер. Адаптер используется для связи данных (массивы, базы данных)
         со списком (ListView)
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         new GetProducts().execute(); //Подключение к нашей API в отдельном потоке
+
     }
     private class GetProducts extends AsyncTask<Void, Void, String> {
 
@@ -93,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
                             (float) productJson.getDouble("price"),
                             productJson.getString("weight"),
                             productJson.getString("nameProiz"),
-                            productJson.getString("countryProiz")
-
+                            productJson.getString("countryProiz"),
+                            productJson.getString("picture")
 
                     );
                     listProduct.add(tempProduct);
@@ -107,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
     public void Go()
     {
 

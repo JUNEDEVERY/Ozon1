@@ -59,7 +59,7 @@ public class AdapterMask  extends BaseAdapter {
         TextView Weight = v.findViewById(R.id.txtweight);
         TextView NameProiz = v.findViewById(R.id.txtnameProiz);
         TextView Country = v.findViewById(R.id.txtCountry);
-        ImageView imageView = v.findViewById(R.id.imageView);
+        ImageView Image = v.findViewById(R.id.nonephotoItem);
 
         Mask mask = maskList.get(i);
         Title.setText(mask.getName());
@@ -67,8 +67,14 @@ public class AdapterMask  extends BaseAdapter {
         Weight.setText(mask.getWeight());
         NameProiz.setText(mask.getNameProiz());
         Country.setText(mask.getCountryProiz());
-
-      //  imageView.setImageBitmap(getUserImage(mask.get()));
+        if(mask.getImage().toString().equals("null"))
+        {
+            Image.setImageResource(R.drawable.nullphoto);
+        }
+        else
+        {
+            Image.setImageBitmap(getUserImage(mask.getImage()));
+        }
 
 
         return v;
